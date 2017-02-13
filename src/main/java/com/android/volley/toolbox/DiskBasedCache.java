@@ -59,7 +59,7 @@ public class DiskBasedCache implements Cache {
     /** The root directory to use for the cache. */
     private final File mRootDirectory;
 
-    /** The maximum dataLength of the cache in bytes. */
+    /** The maximum size of the cache in bytes. */
     private final int mMaxCacheSizeInBytes;
 
     /** Default maximum disk usage in bytes. */
