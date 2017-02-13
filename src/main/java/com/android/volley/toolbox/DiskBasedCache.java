@@ -17,8 +17,6 @@
 package com.android.volley.toolbox;
 
 import android.os.SystemClock;
-import android.support.annotation.NonNull;
-import android.support.annotation.VisibleForTesting;
 
 import com.android.volley.Cache;
 import com.android.volley.VolleyLog;
@@ -300,12 +298,12 @@ public class DiskBasedCache implements Cache {
         }
     }
 
-    @VisibleForTesting
+    //VisibleForTesting
     InputStream createInputStream(File file) throws FileNotFoundException {
         return new FileInputStream(file);
     }
 
-    @VisibleForTesting
+    //VisibleForTesting
     OutputStream createOutputStream(File file) throws FileNotFoundException {
         return new FileOutputStream(file);
     }
@@ -313,7 +311,7 @@ public class DiskBasedCache implements Cache {
     /**
      * Header for each cached item.
      */
-    @VisibleForTesting
+    //VisibleForTesting
     static class CacheHeader {
         /** The key that identifies the cache entry. */
         final String key;
@@ -421,7 +419,7 @@ public class DiskBasedCache implements Cache {
         /**
          * Writes the fields of this CacheHeader to the specified DataOutput.
          */
-        @VisibleForTesting
+        //VisibleForTesting
         void writeFields(DataOutput out) throws IOException {
             out.writeInt(CACHE_MAGIC);
             out.writeUTF(key);
@@ -462,7 +460,7 @@ public class DiskBasedCache implements Cache {
     }
 
     /** Counts the number of bytes read from this stream. */
-    @VisibleForTesting
+    //VisibleForTesting
     static class CountingInputStream extends FilterInputStream {
         private int bytesRead;
 
@@ -480,7 +478,7 @@ public class DiskBasedCache implements Cache {
         }
 
         @Override
-        public int read(@NonNull byte[] buffer, int offset, int count) throws IOException {
+        public int read(/*NonNull*/ byte[] buffer, int offset, int count) throws IOException {
             int result = super.read(buffer, offset, count);
             if (result != -1) {
                 bytesRead += result;
